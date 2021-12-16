@@ -2,28 +2,18 @@
 
 window.onload = function() {
   //write your code here
-  let who = ["The dog", "My grandma", "His turtle", "My bird"];
-  let action = ["ate", "peed", "crushed", "broke"];
-  let what = ["my homework", "the keys", "the car"];
-  let when = [
-    "before the class",
-    "right on time",
-    "when I finished",
-    "during my lunch",
-    "while I was praying"
-  ];
+  let pronoun = ["the", "our"];
+  let adj = ["great", "big"];
+  let noun = ["jogger", "racoon"];
+  let possible_dns = [];
 
-  let excuse = `${randomChoice(who)} ${randomChoice(action)} ${randomChoice(
-    what
-  )} ${randomChoice(when)}.`;
+  pronoun.forEach(p => {
+    adj.forEach(a => {
+      noun.forEach(n => {
+        possible_dns.push(`${p}${a}${n}.com`);
+      });
+    });
+  });
 
-  document.getElementById("excuse").innerText = excuse;
+  document.getElementById("possible-dns").innerText = possible_dns.join("\n");
 };
-
-function randomNumber(range) {
-  return Math.floor(Math.random() * range);
-}
-
-function randomChoice(array) {
-  return array[randomNumber(array.length)];
-}
